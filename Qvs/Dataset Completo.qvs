@@ -1,0 +1,162 @@
+﻿SET vNombreArchivo = 'Delitos2018A2023';
+
+$(vNombreArchivo):
+  LOAD
+  	AutoNumber(RecNo()) as NuevoId,
+    "id-mapa" as ID,
+    Date(fecha) as Fecha,
+    Year(Date(fecha)) as [Año],
+    Time(franja/24, 'hh:mm') as Hora,
+    tipo as Tipo_Delito,
+    If(subtipo = 'Homicidios dolosos', 'Homicidio Doloso', subtipo) as Subtipo_Delito,
+    uso_arma,
+    uso_moto,
+    'Argentina' as [Pais],
+    'Ciudad de Buenos Aires' as [Ciudad],
+    $(vApplyMapBarrio) as Barrio,
+    $(vApplyMapComuna) as Comuna,
+    $(vTransformacionLatitud) as latitud_corregida,
+    latitud,
+    $(vTransformacionLongitud) as longitud_corregida,
+    longitud,
+    '1' as Cantidad
+  FROM [lib://DataFiles/delitos_2018.csv]
+  (txt, utf8, embedded labels, delimiter is ',', msq)
+  Where Not Match(Lower(barrio), $(vFiltroBarrio)) > 0
+  And Match (tipo,  $(vFiltroTipo)) > 0
+  And comuna <> 'NULL';
+  
+Concatenate
+
+  LOAD
+   AutoNumber(RecNo() + 149456) as NuevoId,
+   "id-mapa" as ID,
+   Date(fecha) as Fecha,
+   Year(Date(fecha)) as [Año],
+   Time(franja/24, 'hh:mm') as Hora,
+   tipo as Tipo_Delito,
+   If(subtipo = 'Homicidios dolosos', 'Homicidio Doloso', subtipo) as Subtipo_Delito,
+   uso_arma,
+   uso_moto,
+   'Argentina' as [Pais],
+   'Ciudad de Buenos Aires' as [Ciudad],
+   $(vApplyMapBarrio) as Barrio,
+   $(vApplyMapComuna) as Comuna,
+   $(vTransformacionLatitud) as latitud_corregida,
+   latitud,
+   $(vTransformacionLongitud) as longitud_corregida,
+   longitud,
+   '1' as Cantidad
+  FROM [lib://DataFiles/delitos_2019.csv]
+  (txt, utf8, embedded labels, delimiter is ',', msq)
+  Where Not Match(Lower(barrio), $(vFiltroBarrio)) > 0
+  And Match (tipo,  $(vFiltroTipo)) > 0
+  And comuna <> 'NULL';
+  
+Concatenate
+
+  LOAD
+  	AutoNumber(RecNo() + 298981) as NuevoId,
+    "id-mapa" as ID,
+    Date(fecha) as Fecha,
+    Year(Date(fecha)) as [Año],
+    Time(franja/24, 'hh:mm') as Hora,
+    tipo as Tipo_Delito,
+    If(subtipo = 'Homicidios dolosos', 'Homicidio Doloso', subtipo) as Subtipo_Delito,
+    uso_arma,
+    uso_moto,
+    'Argentina' as [Pais],
+    'Ciudad de Buenos Aires' as [Ciudad],
+    $(vApplyMapBarrio) as Barrio,
+    $(vApplyMapComuna) as Comuna,
+    $(vTransformacionLatitud) as latitud_corregida,
+    latitud,
+    $(vTransformacionLongitud) as longitud_corregida,
+    longitud,
+    '1' as Cantidad
+  FROM [lib://DataFiles/delitos_2020.csv]
+  (txt, utf8, embedded labels, delimiter is ',', msq)
+  Where Not Match(Lower(barrio), $(vFiltroBarrio)) > 0
+  And Match (tipo,  $(vFiltroTipo)) > 0
+  And comuna <> 'NULL';
+  
+Concatenate
+
+  LOAD
+  	AutoNumber(RecNo() + 385157) as NuevoId,
+    "id-mapa" as ID,
+    Date(fecha) as Fecha,
+    Year(Date(fecha)) as [Año],
+    Time(franja/24, 'hh:mm') as Hora,
+    tipo as Tipo_Delito,
+    If(subtipo = 'Homicidios dolosos', 'Homicidio Doloso', subtipo) as Subtipo_Delito,
+    uso_arma,
+    uso_moto,
+    'Argentina' as [Pais],
+    'Ciudad de Buenos Aires' as [Ciudad],
+    $(vApplyMapBarrio) as Barrio,
+    $(vApplyMapComuna) as Comuna,
+    $(vTransformacionLatitud) as latitud_corregida,
+    latitud,
+    $(vTransformacionLongitud) as longitud_corregida,
+    longitud,
+    '1' as Cantidad
+  FROM [lib://DataFiles/delitos_2021.csv]
+  (txt, utf8, embedded labels, delimiter is ',', msq)
+  Where Not Match(Lower(barrio), $(vFiltroBarrio)) > 0
+  And Match (tipo,  $(vFiltroTipo)) > 0
+  And comuna <> 'NULL';
+  
+Concatenate
+
+  LOAD
+  	AutoNumber(RecNo() + 497120) as NuevoId,
+    "id-mapa" as ID,
+    Date(fecha) as Fecha,
+    Year(Date(fecha)) as [Año],
+    Time(franja/24, 'hh:mm') as Hora,
+    tipo as Tipo_Delito,
+    If(subtipo = 'Homicidios dolosos', 'Homicidio Doloso', subtipo) as Subtipo_Delito,
+    uso_arma,
+    uso_moto,
+    'Argentina' as [Pais],
+    'Ciudad de Buenos Aires' as [Ciudad],
+    $(vApplyMapBarrio) as Barrio,
+    $(vApplyMapComuna) as Comuna,
+    $(vTransformacionLatitud) as latitud_corregida,
+    latitud,
+    $(vTransformacionLongitud) as longitud_corregida,
+    longitud,
+    '1' as Cantidad
+  FROM [lib://DataFiles/delitos_2022.csv]
+  (txt, utf8, embedded labels, delimiter is ',', msq)
+  Where Not Match(Lower(barrio), $(vFiltroBarrio)) > 0
+  And Match (tipo,  $(vFiltroTipo)) > 0
+  And comuna <> 'NULL';
+  
+Concatenate
+
+  LOAD
+  	AutoNumber(RecNo() + 638039) as NuevoId,
+    "id-sum" as ID,
+    Date(fecha) as Fecha,
+    Year(Date(fecha)) as [Año],
+    Time(franja/24, 'hh:mm') as Hora,
+    tipo as Tipo_Delito,
+    If(subtipo = 'Homicidios dolosos', 'Homicidio Doloso', subtipo) as Subtipo_Delito,
+    uso_arma,
+    uso_moto,
+    'Argentina' as [Pais],
+    'Ciudad de Buenos Aires' as [Ciudad],
+    $(vApplyMapBarrio) as Barrio,
+    $(vApplyMapComuna) as Comuna,
+    $(vTransformacionLatitud) as latitud_corregida,
+    latitud,
+    $(vTransformacionLongitud) as longitud_corregida,
+    longitud,
+    '1' as Cantidad
+  FROM [lib://DataFiles/delitos_2023.csv]
+  (txt, utf8, embedded labels, delimiter is ';', msq)
+  Where Not Match(Lower(barrio), $(vFiltroBarrio)) > 0
+  And Match (tipo,  $(vFiltroTipo)) > 0
+  And comuna <> 'NULL';

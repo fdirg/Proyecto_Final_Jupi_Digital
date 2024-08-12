@@ -1,0 +1,7 @@
+﻿SET vTransformacionLatitud = "
+Num(If(Index(latitud, ',') > 0, Replace(latitud, ',', '.'), 
+    If(Index(latitud, '.') = 0, latitud / 1000000, latitud)), '#.########')";
+    
+SET vTransformacionLongitud = "
+Num(If(Index(longitud, ',') > 0, Replace(longitud, ',', '.'), 
+    If(Index(longitud, '.') = 0, longitud / 1000000, longitud)), '#.########')";

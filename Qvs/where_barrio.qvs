@@ -1,0 +1,21 @@
+﻿SET vFiltroBarrio = "
+					0,
+                    'null', 
+                    'sin geo', 
+                    'no especificada', 
+                    '', 
+                    'villa luzuriaga',
+                    'florida',
+                    'banfield oeste',
+                    'gregorio de laferrere',
+                    'bernal',
+                    'dock sud',
+                    'santa maría',
+                    'caseros',
+                    'rodrigo bueno',
+                    'sd'
+";
+
+SET vFiltroTipo= " 'Robo',
+				   'Hurto'
+                    ";
